@@ -1,0 +1,55 @@
+{
+  "extends": ["airbnb", "standard-preact"],
+  "plugins": ["babel"],
+  "parser": "babel-eslint",
+  "rules": {
+    "react/jsx-filename-extension": [
+      "warn",
+      {
+        "extensions": [".js", "jsx"]
+      }
+    ],
+    "max-len": ["error", 120],
+    "jsx-quotes": ["error", "prefer-double"],
+    "react/jsx-props-no-spreading": "off",
+    "no-underscore-dangle": "off",
+    "class-methods-use-this": "off",
+    "no-plusplus": "off",
+    "consistent-return": "off",
+    "no-continue": "off",
+    "no-return-assign": "off",
+    "jsx-a11y/no-autofocus": "off",
+    "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
+    "object-curly-newline": ["error", {"ObjectPattern": { "consistent": true }}],
+    "operator-linebreak": ["error", "after"],
+    "jsx-a11y/label-has-associated-control": ["error", { "assert": "either" }],
+    "new-cap": [
+      "error",
+      {
+        "newIsCapExceptionPattern": "\\.default"
+      }
+    ]
+  },
+  "env": {
+    "browser": true,
+    "webextensions": true,
+    "es6": true
+  },
+  "settings": {
+    "react": {
+      "pragma": "h",
+      "version": "preact"
+    },
+    "import/resolver": {
+      "webpack": {
+        "config": "./webpack.config.js"
+      }
+    }
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  }
+}

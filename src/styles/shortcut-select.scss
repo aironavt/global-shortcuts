@@ -1,0 +1,11 @@
+@import "variables";
+
+.shortcut-select__value {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.shortcut-select__key {
+  color: $color-gray;
+}

@@ -1,0 +1,23 @@
+@import "variables";
+@import "mixins";
+
+.button-link {
+  @extend %focus;
+
+  display: flex;
+  align-items: flex-end;
+  padding: 0;
+  color: $color-primary;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.button-link__text {
+  text-decoration: underline;
+}
+
+.button-link__icon {
+  padding-left: 3px;
+  fill: currentColor;
+}

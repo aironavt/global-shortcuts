@@ -1,0 +1,75 @@
+@import "variables";
+@import "mixins";
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form__label {
+  min-height: 1.3em;
+  padding: 0 0 10px;
+}
+
+.form__label_groups {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.form__label-info {
+  padding-left: 0.3rem;
+  color: $color-gray;
+  font-size: 0.8rem;
+}
+
+.form_input {
+  @extend %focus;
+
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+}
+
+.form__textarea {
+  @extend %focus;
+
+  height: 50px;
+  min-height: 50px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  line-height: 1.4em;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.form__group-fields {
+  display: flex;
+}
+
+.form__group-field {
+  flex-grow: 1;
+  width: 100%;
+}
+
+.form__group-field + .form__group-field {
+  margin-left: 20px;
+}
+
+.form__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.form__footer * + * {
+  margin-left: 10px;
+}

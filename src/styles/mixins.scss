@@ -1,0 +1,12 @@
+@import "variables";
+
+@mixin focus {
+  outline: 2px solid rgba($color-primary, 0.4);
+  outline-offset: 2px;
+}
+
+%focus {
+  &:focus {
+    @include focus;
+  }
+}

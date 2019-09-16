@@ -1,0 +1,28 @@
+@import "variables";
+@import "mixins";
+
+.code-editor {
+  border-radius: 4px;
+  animation: slide-up 0.4s ease;
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.code-editor-wrapper {
+  position: relative;
+  min-height: 500px;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+}
+
+.code-editor-wrapper_focus {
+  @include focus;
+}

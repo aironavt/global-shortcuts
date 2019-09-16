@@ -1,0 +1,21 @@
+{
+  "sourceMaps": true,
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "chrome": "74"
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    ["transform-react-jsx", { "pragma": "h" }],
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-optional-chaining",
+    "babel-plugin-inline-react-svg",
+    "@babel/plugin-proposal-nullish-coalescing-operator"
+  ]
+}

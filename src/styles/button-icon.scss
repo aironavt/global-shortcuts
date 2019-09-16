@@ -1,0 +1,19 @@
+@import "variables";
+@import "mixins";
+
+.button-icon {
+  @extend %focus;
+
+  display: flex;
+  align-items: center;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  fill: rgba($color-gray, 0.5);
+
+  &:hover {
+    background: rgba($color-gray, 0.1);
+  }
+}

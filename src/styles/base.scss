@@ -1,0 +1,61 @@
+@import "variables";
+
+::selection {
+  background: lighten($color-primary, 40%);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  height: 50px;
+  background-color: rgba($color-black, 0.15);
+  border-radius: 5px;
+
+  &:hover {
+    background-color: rgba($color-black, 0.25);
+  }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  color: $color-text;
+  font-size: 14px;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+.wrapper {
+  width: 800px;
+  margin: auto;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $color-border;
+  border-radius: 8px;
+  user-select: none;
+}
+
+.title {
+  margin-left: 30px;
+  font-weight: normal;
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Global shortcuts",
+  "options_page": "options.html",
+  "background": {
+    "persistent": false,
+    "scripts": [
+      "background.bundle.js"
+    ]
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "webNavigation",
+    "<all_urls>"
+  ],
+  "manifest_version": 2
+}

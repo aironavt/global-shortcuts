@@ -1,0 +1,113 @@
+@import "variables";
+@import "mixins";
+
+.select {
+  position: relative;
+}
+
+.select__control {
+  display: flex;
+  overflow: hidden;
+  font-size: 1rem;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+}
+
+.select__control_is-focused {
+  @include focus;
+}
+
+.select__input {
+  position: absolute;
+  top: -100px;
+  padding: 11px 5px 11px 15px;
+  font-size: 1rem;
+  font-family: inherit;
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.select__input_is-edited {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.select__value {
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+  padding: 10px 5px 10px 15px;
+  cursor: pointer;
+}
+
+.select__placeholder {
+  color: $color-gray;
+}
+
+.select__dropdown {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  padding: 0 5px;
+  cursor: pointer;
+}
+
+.select__dropdown-icon {
+  display: flex;
+  transition: transform 0.2s ease-out;
+}
+
+.select__dropdown-icon_open {
+  transform: rotate(180deg);
+}
+
+.select__menu {
+  position: absolute;
+  top: 0.4rem;
+  z-index: 5;
+  box-sizing: border-box;
+  width: 100%;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba($color-black, 0.05);
+}
+
+.select__menu-wrapper {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.select__options {
+  max-height: 150px;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.select__option {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: 300ms background-color ease-out;
+}
+
+.select__option_active {
+  background: rgba($color-black, 0.05);
+}
+
+.select__option_select {
+  font-weight: bold;
+}
+
+.select__empty-options {
+  padding: 10px 15px;
+  color: $color-gray;
+}

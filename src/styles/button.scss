@@ -1,0 +1,40 @@
+@import "variables";
+@import "mixins";
+
+.button {
+  @extend %focus;
+
+  padding: 10px 20px;
+  color: $color-primary;
+  background: transparent;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 300ms border-color ease-out, 300ms background ease-out;
+
+  &:hover {
+    background-color: rgba(lighten($color-primary, 10%), 0.039);
+    border-color: lighten($color-primary, 35%);
+  }
+
+  &:active {
+    background-color: rgba(lighten($color-primary, 10%), 0.135);
+    border-color: lighten($color-primary, 30%);
+  }
+}
+
+.button_primary {
+  color: $color-on-primary;
+  background: $color-primary;
+  border-color: $color-primary;
+
+  &:hover {
+    background: lighten($color-primary, 10%);
+    border-color: lighten($color-primary, 10%);
+  }
+
+  &:active {
+    background: darken($color-primary, 5%);
+    border-color: darken($color-primary, 5%);
+  }
+}

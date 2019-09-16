@@ -1,0 +1,38 @@
+@import "variables";
+@import "mixins";
+
+.toolbar-button {
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  margin-bottom: -1px;
+  padding: 20px 20px 20px 30px;
+  font-size: 1.1rem;
+  background: transparent;
+  border: none;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+  transition: 300ms background-color ease-out, 300ms border-color ease-out;
+
+  &:hover {
+    background: rgba($color-black, 0.03);
+    border-bottom-color: $color-border;
+  }
+
+  &:focus {
+    @include focus;
+
+    z-index: 1;
+  }
+}
+
+.toolbar-button__text {
+  color: $color-primary;
+}
+
+.toolbar-button__info {
+  color: $color-gray;
+}

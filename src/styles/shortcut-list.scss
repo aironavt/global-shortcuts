@@ -1,0 +1,108 @@
+@import "variables";
+@import "mixins";
+
+.shortcut-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.shortcut-list__item {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: space-between;
+  margin: 0 0 -1px 0;
+  padding-left: 30px;
+  border: solid transparent;
+  border-width: 1px 0 1px;
+  cursor: pointer;
+  transition: 300ms background-color ease-out, 300ms border-color ease-out;
+}
+
+.shortcut-list__empty::before,
+.shortcut-list__item::before,
+.shortcut-list__item::after {
+  position: absolute;
+  right: 0;
+  left: 30px;
+  height: 1px;
+  background: $color-border;
+  content: "";
+}
+
+.shortcut-list__empty::before,
+.shortcut-list__item::before {
+  top: -1px;
+}
+
+.shortcut-list__item::after {
+  bottom: -1px;
+  opacity: 0;
+}
+
+.shortcut-list__item:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+  border-radius: 0 0 8px 8px;
+}
+
+.shortcut-list__item:last-child::after {
+  display: none;
+}
+
+.shortcut-list__item:hover,
+.shortcut-list__item_active {
+  background: rgba($color-black, 0.03);
+  border-color: $color-border;
+}
+
+.shortcut-list__empty {
+  position: relative;
+  padding: 2rem;
+  color: $color-gray;
+  font-size: 1.2rem;
+  text-align: center;
+  border-top: 1px solid transparent;
+}
+
+.shortcut-list:focus {
+  @include focus;
+
+  position: relative;
+  z-index: 1;
+}
+
+.shortcut-list__item-name,
+.shortcut-list__item-keys {
+  padding: 20px 20px 20px 0;
+  font-size: 1.1rem;
+}
+
+.shortcut-list__item-name {
+  flex-grow: 1;
+}
+
+.shortcut-list__item-keys {
+  flex-shrink: 0;
+  color: $color-gray;
+}
+
+.shortcut-list__item-detail {
+  padding: 30px;
+}
+
+.shortcut-list__item-note {
+  max-height: 7rem;
+  padding-top: 5px;
+  overflow: hidden;
+  color: $color-gray;
+  line-height: 1.4rem;
+}
+
+.shortcut-list__item-remove {
+  padding: 17px 10px 0 0;
+}
