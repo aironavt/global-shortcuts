@@ -4,7 +4,7 @@ import CodeEditor from 'components/code-editor';
 import ButtonLink from 'components/button-link';
 import Checkbox from 'components/checkbox';
 import ShortcutSelect from 'components/shortcut-select';
-import LaunchIcon from '../../../../images/launch.svg';
+import LaunchIcon from 'images/launch.svg';
 
 class CommandForm extends Component {
   constructor(props) {

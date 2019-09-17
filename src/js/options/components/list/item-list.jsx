@@ -3,7 +3,7 @@
 import { h, Component } from 'preact';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import TrashIcon from '../../../../images/trash.svg';
+import TrashIcon from 'images/trash.svg';
 
 class ItemList extends Component {
   constructor(props) {

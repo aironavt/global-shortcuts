@@ -4,9 +4,9 @@ import { h, Component } from 'preact';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import withKeyHandlerList from 'enhancer/key-handler-list';
+import DropdownIcon from 'images/dropdown.svg';
 import Options from './options';
 import ValueContainer from './value-container';
-import DropdownIcon from '../../../../images/dropdown.svg';
 
 class Select extends Component {
   constructor(props) {
