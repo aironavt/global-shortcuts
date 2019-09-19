@@ -6,6 +6,8 @@
 }
 
 .select__control {
+  @extend %hover_field;
+
   display: flex;
   overflow: hidden;
   font-size: 1rem;

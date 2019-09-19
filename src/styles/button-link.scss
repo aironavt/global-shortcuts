@@ -11,6 +11,15 @@
   background: transparent;
   border: none;
   cursor: pointer;
+  transition: 300ms color ease-out;
+
+  &:hover {
+    color: lighten($color-primary, 10%);
+  }
+
+  &:active {
+    color: darken($color-primary, 5%);
+  }
 }
 
 .button-link__text {

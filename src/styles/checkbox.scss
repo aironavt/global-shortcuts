@@ -16,6 +16,7 @@
   border: 1px solid $color-border;
   border-radius: 4px;
   cursor: pointer;
+  transition: 300ms border-color ease-out, 300ms background-color ease-out;
   content: ' ';
 
   &::before {
@@ -50,5 +51,14 @@
 
   &:focus + .checkbox__box {
     @include focus;
+  }
+
+  &:hover + .checkbox__box {
+    @include hover_field;
+  }
+
+  &:active + .checkbox__box {
+    background-color: rgba(lighten($color-primary, 10%), 0.135);
+    border-color: lighten($color-primary, 30%);
   }
 }

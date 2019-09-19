@@ -31,6 +31,7 @@
 
 .form_input {
   @extend %focus;
+  @extend %hover_field;
 
   padding: 10px 15px;
   font-size: 1rem;
@@ -40,6 +41,7 @@
 
 .form__textarea {
   @extend %focus;
+  @extend %hover_field;
 
   height: 50px;
   min-height: 50px;
