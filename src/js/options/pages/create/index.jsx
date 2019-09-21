@@ -26,7 +26,9 @@ class CreatePage extends Component {
 
     return (
       <div className="wrapper">
-        <h1 className="title">Create a new shortcut</h1>
+        <h1 className="title">
+          {chrome.i18n.getMessage('createPageTitle')}
+        </h1>
         <div className="content">
           <div className="shortcut-list__item-detail">
             <CommandForm

@@ -24,7 +24,6 @@ function transformManifest(content) {
   }
 
   return Buffer.from(JSON.stringify({
-    description: process.env.npm_package_description,
     version: process.env.npm_package_version,
     commands,
     ...JSON.parse(content.toString()),
@@ -85,11 +84,14 @@ module.exports = {
     new CleanWebpackPlugin({
       verbose: true,
       // Ignore manifest.json otherwise, it will be deleted after rebuilding
-      cleanAfterEveryBuildPatterns: ['!manifest.json'],
+      cleanAfterEveryBuildPatterns: ['!manifest.json', '!**/messages.json'],
     }),
     new CopyWebpackPlugin([{
       from: path.resolve(__dirname, 'src/manifest.json'),
       transform: transformManifest,
+    }]),
+    new CopyWebpackPlugin([{
+      from: path.resolve(__dirname, 'src/_locales/**/messages.json'),
     }]),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({

@@ -76,7 +76,7 @@ class List extends Component {
       ) : (
         <div className="shortcut-list">
           <div className="shortcut-list__empty">
-            No commands added yet
+            {chrome.i18n.getMessage('noCommandsAddedYet')}
           </div>
         </div>
       )

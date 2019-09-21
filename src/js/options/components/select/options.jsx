@@ -42,7 +42,7 @@ class Options extends Component {
       ) : (
         <div className="select__options">
           <div className="select__empty-options">
-            No options
+            {chrome.i18n.getMessage('noOptions')}
           </div>
         </div>
       )

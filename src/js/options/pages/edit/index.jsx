@@ -34,7 +34,9 @@ class EditPage extends Component {
 
     return (
       <div className="wrapper">
-        <h1 className="title">Shortcut editing</h1>
+        <h1 className="title">
+          {chrome.i18n.getMessage('editPageTitle')}
+        </h1>
         <div className="content">
           <div className="shortcut-list__item-detail">
             <CommandForm

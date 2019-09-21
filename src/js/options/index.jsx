@@ -36,6 +36,11 @@ class App extends Component {
       storage,
     });
 
+    const extName = chrome.i18n.getMessage('extName');
+    const optionsPageTitle = chrome.i18n.getMessage('optionsPageTitle');
+
+    document.title = `${extName} - ${optionsPageTitle}`;
+
     window.addEventListener('focus', this.onUserComeBack);
   }
 
@@ -184,7 +189,9 @@ class App extends Component {
 
     if (initialized !== true) {
       return (
-        <div>Initialization</div>
+        <div>
+          {chrome.i18n.getMessage('initialization')}
+        </div>
       );
     }
 

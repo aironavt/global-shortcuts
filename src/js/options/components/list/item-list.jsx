@@ -76,7 +76,7 @@ class ItemList extends Component {
             type="button"
             tabIndex="-1"
             onClick={this.onRemoveItem}
-            title={`Delete command: ${name}`}
+            title={chrome.i18n.getMessage('hintWhenDeletingCommand', name)}
           >
             <TrashIcon
               width={24}

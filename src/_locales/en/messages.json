@@ -1,0 +1,83 @@
+{
+  "extName": {
+    "message": "Global shortcuts",
+    "description": "The extension name"
+  },
+  "extDescription": {
+    "message": "Chrome extension allows you to run your scripts on any website using keyboard shortcuts when the browser window is minimized",
+    "description": "The extension description"
+  },
+  "initialization": {
+    "message": "Initialization...",
+    "description": "It is displayed when the page with options is still uninitialized"
+  },
+  "optionsPageTitle": {
+    "message": "Options",
+    "description": "Options page title"
+  },
+  "createPageTitle": {
+    "message": "Create a new shortcut"
+  },
+  "editPageTitle": {
+    "message": "Shortcut editing"
+  },
+  "shortcutListPageTitle": {
+    "message": "Shortcut list"
+  },
+  "createShortcut": {
+    "message": "Create shortcut",
+    "description": "Button text leading to the shortcut creation page"
+  },
+  "optionalField": {
+    "message": "Optional"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
+  "save": {
+    "message": "Save"
+  },
+  "description": {
+    "message": "Description"
+  },
+  "code": {
+    "message": "Code"
+  },
+  "onlyForFirstTabMatched": {
+    "message": "Only for the first tab matched"
+  },
+  "url": {
+    "message": "Url"
+  },
+  "matchPatternsHelp": {
+    "message": "Match Patterns help"
+  },
+  "shortcut": {
+    "message": "Shortcut"
+  },
+  "changeCommandShortcut": {
+    "message": "Change command shortcut"
+  },
+  "name": {
+    "message": "Name"
+  },
+  "noCommandsAddedYet": {
+    "message": "No commands added yet"
+  },
+  "hintWhenDeletingCommand": {
+    "message": "Delete command: $CommandName$",
+    "placeholders": {
+      "commandName": {
+        "content": "$1",
+        "example": "Play music"
+      }
+    }
+  },
+  "noOptions": {
+    "message": "No options"
+  },
+  "notSpecified": {
+    "message": "Not specified",
+    "description": "Placeholder displayed instead of the specified shortcuts"
+  }
+}
