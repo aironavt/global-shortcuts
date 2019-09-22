@@ -84,7 +84,11 @@ module.exports = {
     new CleanWebpackPlugin({
       verbose: true,
       // Ignore manifest.json otherwise, it will be deleted after rebuilding
-      cleanAfterEveryBuildPatterns: ['!manifest.json', '!**/messages.json'],
+      cleanAfterEveryBuildPatterns: [
+        '!manifest.json',
+        '!**/messages.json',
+        '!images/*.png',
+      ],
     }),
     new CopyWebpackPlugin([{
       from: path.resolve(__dirname, 'src/manifest.json'),
@@ -92,6 +96,9 @@ module.exports = {
     }]),
     new CopyWebpackPlugin([{
       from: path.resolve(__dirname, 'src/_locales/**/messages.json'),
+    }]),
+    new CopyWebpackPlugin([{
+      from: path.resolve(__dirname, 'src/images/*.png'),
     }]),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
