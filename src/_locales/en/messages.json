@@ -1,68 +1,33 @@
 {
-  "extName": {
-    "message": "Global shortcuts",
-    "description": "The extension name"
-  },
-  "extDescription": {
-    "message": "Chrome extension allows you to run your scripts on any website using keyboard shortcuts when the browser window is minimized",
-    "description": "The extension description"
-  },
-  "initialization": {
-    "message": "Initialization...",
-    "description": "It is displayed when the page with options is still uninitialized"
-  },
-  "optionsPageTitle": {
-    "message": "Options",
-    "description": "Options page title"
-  },
-  "createPageTitle": {
-    "message": "Create a new shortcut"
-  },
-  "editPageTitle": {
-    "message": "Shortcut editing"
-  },
-  "shortcutListPageTitle": {
-    "message": "Shortcut list"
-  },
-  "createShortcut": {
-    "message": "Create shortcut",
-    "description": "Button text leading to the shortcut creation page"
-  },
-  "optionalField": {
-    "message": "Optional"
-  },
   "cancel": {
     "message": "Cancel"
-  },
-  "save": {
-    "message": "Save"
-  },
-  "description": {
-    "message": "Description"
-  },
-  "code": {
-    "message": "Code"
-  },
-  "onlyForFirstTabMatched": {
-    "message": "Only for the first tab matched"
-  },
-  "url": {
-    "message": "Url"
-  },
-  "matchPatternsHelp": {
-    "message": "Match Patterns help"
-  },
-  "shortcut": {
-    "message": "Shortcut"
   },
   "changeCommandShortcut": {
     "message": "Change command shortcut"
   },
-  "name": {
-    "message": "Name"
+  "code": {
+    "message": "Code"
   },
-  "noCommandsAddedYet": {
-    "message": "No commands added yet"
+  "createPageTitle": {
+    "message": "Create a new shortcut"
+  },
+  "createShortcut": {
+    "description": "Button text leading to the shortcut creation page",
+    "message": "Create shortcut"
+  },
+  "description": {
+    "message": "Description"
+  },
+  "editPageTitle": {
+    "message": "Shortcut editing"
+  },
+  "extDescription": {
+    "description": "The extension description",
+    "message": "Chrome extension allows you to run your scripts on any website using keyboard shortcuts when the browser window is minimized"
+  },
+  "extName": {
+    "description": "The extension name",
+    "message": "Global shortcuts"
   },
   "hintWhenDeletingCommand": {
     "message": "Delete command: $CommandName$",
@@ -73,11 +38,46 @@
       }
     }
   },
+  "initialization": {
+    "description": "It is displayed when the page with options is still uninitialized",
+    "message": "Initialization..."
+  },
+  "matchPatternsHelp": {
+    "message": "Match Patterns help"
+  },
+  "name": {
+    "message": "Name"
+  },
+  "noCommandsAddedYet": {
+    "message": "No commands added yet"
+  },
   "noOptions": {
     "message": "No options"
   },
   "notSpecified": {
-    "message": "Not specified",
-    "description": "Placeholder displayed instead of the specified shortcuts"
+    "description": "Placeholder displayed instead of the specified shortcuts",
+    "message": "Not specified"
+  },
+  "onlyForFirstTabMatched": {
+    "message": "Only for the first tab matched"
+  },
+  "optionalField": {
+    "message": "Optional"
+  },
+  "optionsPageTitle": {
+    "description": "Options page title",
+    "message": "Options"
+  },
+  "save": {
+    "message": "Save"
+  },
+  "shortcut": {
+    "message": "Shortcut"
+  },
+  "shortcutListPageTitle": {
+    "message": "Shortcut list"
+  },
+  "url": {
+    "message": "Url"
   }
 }

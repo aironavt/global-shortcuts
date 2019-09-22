@@ -8,9 +8,10 @@
     "build:production": "NODE_ENV=production webpack",
     "watch": "NODE_ENV=development webpack --watch",
     "hot": "NODE_ENV=development webpack-dev-server --hot",
-    "lint": "npm run lint:js && npm run lint:scss",
+    "lint": "npm run lint:js && npm run lint:scss && npm run lint:locales",
     "lint:js": "eslint src -c .eslintrc --ext js,jsx --cache",
-    "lint:scss": "stylelint ./src/styles/*.scss !**/normalize.scss --color --formatter verbose --cache"
+    "lint:scss": "stylelint ./src/styles/*.scss !**/normalize.scss --color --formatter verbose --cache",
+    "lint:locales": "jsonlint ./src/_locales/**/messages.json --sort-keys --no-duplicate-keys --quiet --in-place"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
     "@babel/plugin-proposal-optional-chaining": "7.6.0",
     "@babel/plugin-syntax-dynamic-import": "7.2.0",
     "@babel/preset-env": "7.6.0",
+    "@prantlf/jsonlint": "8.0.2",
     "babel-eslint": "11.0.0-beta.0",
     "babel-loader": "8.0.6",
     "babel-plugin-inline-react-svg": "1.1.0",
@@ -46,7 +48,7 @@
     "eslint-plugin-import": "2.18.2",
     "eslint-plugin-jsx-a11y": "6.2.3",
     "html-webpack-plugin": "3.2.0",
-    "husky": "^3.0.5",
+    "husky": "3.0.5",
     "lint-staged": "9.2.5",
     "mini-css-extract-plugin": "0.8.0",
     "node-sass": "4.12.0",
