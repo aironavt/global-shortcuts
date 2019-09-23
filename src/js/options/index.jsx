@@ -122,7 +122,7 @@ class App extends Component {
   commandShortcutsPreparation(commandShortcuts) {
     return commandShortcuts
       .map(({ name, description, shortcut }) => ({
-        id: parseInt(name, 10),
+        id: name,
         name,
         description,
         shortcut,

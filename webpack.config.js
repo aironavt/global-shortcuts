@@ -18,7 +18,12 @@ function transformManifest(content) {
   const commands = {};
 
   for (let commandId = 1; commandId <= NUMBER_OF_COMMANDS; commandId++) {
-    commands[commandId] = {
+    // Add a prefix so that the shortcut is sorted in ascending
+    // order by the number on chrome://extensions/shortcuts page
+    const commandNamePrefix = commandId < 10 ? 'a' : 'b';
+    const commandName = `${commandNamePrefix}${commandId}`;
+
+    commands[commandName] = {
       description: `Command ${commandId.toString().padStart(2, '0')}`,
     };
   }
