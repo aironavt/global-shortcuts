@@ -60,7 +60,13 @@ export default class GlobalShortcuts {
           break;
         }
 
-        chrome.tabs.executeScript(tab.id, { code: script });
+        chrome.tabs.executeScript(tab.id, { code: script }, () => {
+          if (process.env.NODE_ENV === 'production') {
+            // Hide error messages in production
+            // eslint-disable-next-line no-unused-expressions
+            chrome.runtime.lastError;
+          }
+        });
       }
     });
   }
