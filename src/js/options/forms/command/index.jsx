@@ -190,7 +190,7 @@ class CommandForm extends Component {
             {chrome.i18n.getMessage('code')}
           </label>
           <CodeEditor
-            name="UNIQUE_ID_OF_DIV"
+            name="code"
             value={script}
             onChange={this.onChangeScript}
           />
