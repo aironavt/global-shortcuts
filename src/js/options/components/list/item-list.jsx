@@ -90,7 +90,7 @@ class ItemList extends Component {
 }
 
 ItemList.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   isActive: PropTypes.bool,
   name: PropTypes.string.isRequired,
   shortcutValue: PropTypes.string,

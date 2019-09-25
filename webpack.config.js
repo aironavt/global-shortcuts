@@ -54,8 +54,8 @@ module.exports = {
   resolve: {
     extensions: ['.jsx', '.js', '.json', '.scss', '.css'],
     alias: {
-      react: 'preact-compat',
-      'react-dom': 'preact-compat',
+      react: 'preact/compat',
+      'react-dom': 'preact/compat',
       styles: path.resolve(__dirname, 'src/styles'),
     },
     modules: [

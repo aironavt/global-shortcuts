@@ -59,7 +59,10 @@ Options.propTypes = {
   ),
   activeItemIndex: PropTypes.number,
   selectItemId: PropTypes.string,
-  optionComponent: PropTypes.element,
+  optionComponent: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
+  ]),
   onSelectItem: PropTypes.func,
   setActiveItemById: PropTypes.func,
 };

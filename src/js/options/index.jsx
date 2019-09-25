@@ -1,3 +1,8 @@
+/* eslint-disable import/first, global-require */
+if (process.env.NODE_ENV === 'development') {
+  require('preact/debug');
+}
+
 import { h, Component, render } from 'preact';
 import Router, { route } from 'preact-router';
 import { CreatePage, EditPage, ListPage } from 'pages';
@@ -45,9 +50,7 @@ class App extends Component {
   }
 
   async onCreateCommand(value) {
-    const { storage } = this.state;
-
-    await this.setState({
+    await this.setState(({ storage }) => ({
       storage: {
         ...storage,
         commands: storage.commands.concat({
@@ -55,26 +58,27 @@ class App extends Component {
           ...value,
         }),
       },
-    });
+    }));
 
     await this.saveToStorageAndReturnToList();
   }
 
   async onEditCommand(id, value) {
-    const { storage } = this.state;
-    const editCommand = storage.commands.findIndex((command) => command.id === id);
-    const commands = [...storage.commands];
+    await this.setState(({ storage }) => {
+      const editCommand = storage.commands.findIndex((command) => command.id === id);
+      const commands = [...storage.commands];
 
-    commands[editCommand] = {
-      ...value,
-      id,
-    };
+      commands[editCommand] = {
+        ...value,
+        id,
+      };
 
-    await this.setState({
-      storage: {
-        ...storage,
-        commands,
-      },
+      return {
+        storage: {
+          ...storage,
+          commands,
+        },
+      };
     });
 
     await this.saveToStorageAndReturnToList();

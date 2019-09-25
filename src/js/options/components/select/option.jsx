@@ -75,7 +75,10 @@ Option.propTypes = {
   isActive: PropTypes.bool,
   // eslint-disable-next-line react/forbid-prop-types
   optionProps: PropTypes.object,
-  optionComponent: PropTypes.element,
+  optionComponent: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
+  ]),
   onSelectItem: PropTypes.func,
   setActiveItemById: PropTypes.func,
 };

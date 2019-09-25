@@ -99,8 +99,14 @@ SelectWrapper.propTypes = {
       name: PropTypes.string.isRequired,
     }),
   ),
-  valueContainerComponent: PropTypes.element,
-  optionComponent: PropTypes.element,
+  valueContainerComponent: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
+  ]),
+  optionComponent: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
+  ]),
   onChange: PropTypes.func,
 };
 

@@ -66,9 +66,7 @@ class Select extends Component {
       closeMenu,
     } = this.props;
 
-    this.setState({
-      isFocused: false,
-    });
+    this.setState({ isFocused: false });
 
     if (menuIsOpen) {
       closeMenu();
@@ -239,8 +237,14 @@ Select.propTypes = {
   placeholder: PropTypes.string,
   menuIsOpen: PropTypes.bool,
   isEdited: PropTypes.bool,
-  valueContainerComponent: PropTypes.element,
-  optionComponent: PropTypes.element,
+  valueContainerComponent: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
+  ]),
+  optionComponent: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
+  ]),
   inputValue: PropTypes.string,
   selectItemId: PropTypes.string,
   activeItemIndex: PropTypes.number,

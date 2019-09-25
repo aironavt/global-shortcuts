@@ -213,7 +213,7 @@ export default function withKeyHandlerList(WrappedComponent, options = {}) {
   WithKeyHandlerList.propTypes = {
     items: PropTypes.arrayOf(
       PropTypes.shape({
-        id: PropTypes.number.isRequired,
+        id: PropTypes.string.isRequired,
       }),
     ).isRequired,
     onGoToItem: PropTypes.func,

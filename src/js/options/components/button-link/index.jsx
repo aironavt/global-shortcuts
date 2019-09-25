@@ -25,7 +25,10 @@ function ButtonLink({ icon: Icon, children, ...props }) {
 }
 
 ButtonLink.propTypes = {
-  icon: PropTypes.element,
+  icon: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
+  ]),
   children: PropTypes.node.isRequired,
 };
 

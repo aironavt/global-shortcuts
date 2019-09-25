@@ -60,15 +60,14 @@ class CommandForm extends Component {
   }
 
   onInputConditions({ target }) {
-    const { conditions } = this.state;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
-    this.setState({
+    this.setState(({ conditions }) => ({
       conditions: {
         ...conditions,
         [target.name]: value,
       },
-    });
+    }));
   }
 
   onChangeShortcut(id) {

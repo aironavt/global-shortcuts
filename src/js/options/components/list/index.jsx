@@ -18,17 +18,19 @@ class List extends Component {
   }
 
   onFocus() {
-    const { activeItem } = this.state;
     const { items } = this.props;
-    const newState = {
-      isFocus: true,
-    };
 
-    if (!activeItem) {
-      newState.activeItem = items[0].id;
-    }
+    this.setState(({ activeItem }) => {
+      const newState = {
+        isFocus: true,
+      };
 
-    this.setState(newState);
+      if (!activeItem) {
+        newState.activeItem = items[0].id;
+      }
+
+      return newState;
+    });
   }
 
   onBlur() {
@@ -87,7 +89,7 @@ class List extends Component {
 List.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
     }),
   ).isRequired,
   activeItemIndex: PropTypes.number,
