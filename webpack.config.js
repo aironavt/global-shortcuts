@@ -18,13 +18,17 @@ function transformManifest(content) {
   const commands = {};
 
   for (let commandId = 1; commandId <= NUMBER_OF_COMMANDS; commandId++) {
-    commands[commandId] = {
+    // Add a prefix so that the shortcut is sorted in ascending
+    // order by the number on chrome://extensions/shortcuts page
+    const commandNamePrefix = commandId < 10 ? 'a' : 'b';
+    const commandName = `${commandNamePrefix}${commandId}`;
+
+    commands[commandName] = {
       description: `Command ${commandId.toString().padStart(2, '0')}`,
     };
   }
 
   return Buffer.from(JSON.stringify({
-    description: process.env.npm_package_description,
     version: process.env.npm_package_version,
     commands,
     ...JSON.parse(content.toString()),
@@ -50,8 +54,8 @@ module.exports = {
   resolve: {
     extensions: ['.jsx', '.js', '.json', '.scss', '.css'],
     alias: {
-      react: 'preact-compat',
-      'react-dom': 'preact-compat',
+      react: 'preact/compat',
+      'react-dom': 'preact/compat',
       styles: path.resolve(__dirname, 'src/styles'),
     },
     modules: [
@@ -85,11 +89,21 @@ module.exports = {
     new CleanWebpackPlugin({
       verbose: true,
       // Ignore manifest.json otherwise, it will be deleted after rebuilding
-      cleanAfterEveryBuildPatterns: ['!manifest.json'],
+      cleanAfterEveryBuildPatterns: [
+        '!manifest.json',
+        '!**/messages.json',
+        '!images/*.png',
+      ],
     }),
     new CopyWebpackPlugin([{
       from: path.resolve(__dirname, 'src/manifest.json'),
       transform: transformManifest,
+    }]),
+    new CopyWebpackPlugin([{
+      from: path.resolve(__dirname, 'src/_locales/**/messages.json'),
+    }]),
+    new CopyWebpackPlugin([{
+      from: path.resolve(__dirname, 'src/images/*.png'),
     }]),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({

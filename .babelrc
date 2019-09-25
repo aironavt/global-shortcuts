@@ -11,6 +11,12 @@
     ]
   ],
   "plugins": [
+    ["module-resolver", {
+      "root": ["./src"],
+      "alias": {
+        "images": "./src/images"
+      }
+    }],
     ["transform-react-jsx", { "pragma": "h" }],
     "@babel/plugin-syntax-dynamic-import",
     "@babel/plugin-proposal-class-properties",

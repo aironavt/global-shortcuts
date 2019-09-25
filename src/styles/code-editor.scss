@@ -17,6 +17,8 @@
 }
 
 .code-editor-wrapper {
+  @extend %hover_field;
+
   position: relative;
   min-height: 500px;
   border: 1px solid $color-border;

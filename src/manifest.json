@@ -1,5 +1,7 @@
 {
-  "name": "Global shortcuts",
+  "name": "__MSG_extName__",
+  "description": "__MSG_extDescription__",
+  "default_locale": "en",
   "options_page": "options.html",
   "background": {
     "persistent": false,
@@ -13,5 +15,11 @@
     "webNavigation",
     "<all_urls>"
   ],
+  "icons": {
+    "16": "images/icon.png",
+    "32": "images/icon@2x.png",
+    "48": "images/icon@3x.png",
+    "128": "images/icon@8x.png"
+  },
   "manifest_version": 2
 }

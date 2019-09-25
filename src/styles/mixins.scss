@@ -5,8 +5,20 @@
   outline-offset: 2px;
 }
 
+@mixin hover_field {
+  border-color: darken($color-border, 10%);
+}
+
 %focus {
   &:focus {
     @include focus;
+  }
+}
+
+%hover_field {
+  transition: 300ms border-color ease-out;
+
+  &:hover {
+    @include hover_field;
   }
 }

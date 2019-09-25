@@ -1,0 +1,5 @@
+{
+  "*.{js,jsx}": "eslint",
+  "*.scss": "stylelint",
+  "./src/_locales/**/messages.json": ["jsonlint ./src/_locales/**/messages.json --sort-keys --no-duplicate-keys --quiet --in-place", "git add"]
+}

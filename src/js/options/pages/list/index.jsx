@@ -46,7 +46,9 @@ class ListPage extends Component {
 
     return (
       <div className="wrapper">
-        <h1 className="title">Shortcut list</h1>
+        <h1 className="title">
+          {chrome.i18n.getMessage('shortcutListPageTitle')}
+        </h1>
         <div className="content">
           <button
             className="toolbar-button"
@@ -55,7 +57,9 @@ class ListPage extends Component {
             ref={(ref) => this.createButtonRef = ref}
             autoFocus
           >
-            <span className="toolbar-button__text">Create shortcut</span>
+            <span className="toolbar-button__text">
+              {chrome.i18n.getMessage('createShortcut')}
+            </span>
             <span className="toolbar-button__info">
               {commands.length}
             </span>

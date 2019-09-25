@@ -1,0 +1,71 @@
+{
+  "cancel": {
+    "message": "Отмена"
+  },
+  "changeCommandShortcut": {
+    "message": "Изменить сочетание клавиш"
+  },
+  "code": {
+    "message": "Запускаемый скрипт"
+  },
+  "createPageTitle": {
+    "message": "Создание новой команды"
+  },
+  "createShortcut": {
+    "message": "Создать команду"
+  },
+  "description": {
+    "message": "Описание"
+  },
+  "editPageTitle": {
+    "message": "Редактирование команды"
+  },
+  "extDescription": {
+    "message": "Расширение Chrome позволяющее запускать пользовательский скрипт с помощью горячих клавиш, когда окно браузера свёрнуто или неактивно"
+  },
+  "hintWhenDeletingCommand": {
+    "message": "Удалить команду: $CommandName$",
+    "placeholders": {
+      "commandName": {
+        "content": "$1",
+        "example": "Начать воспроизведение музыки"
+      }
+    }
+  },
+  "initialization": {
+    "message": "Инициализация..."
+  },
+  "matchPatternsHelp": {
+    "message": "Справка по url шаблонам"
+  },
+  "name": {
+    "message": "Название"
+  },
+  "noCommandsAddedYet": {
+    "message": "Недобавленое ещё ни одной команды"
+  },
+  "noOptions": {
+    "message": "Нет записей"
+  },
+  "notSpecified": {
+    "message": "Не указано"
+  },
+  "onlyForFirstTabMatched": {
+    "message": "Только для первой найденой вкладки"
+  },
+  "optionalField": {
+    "message": "Необязательное"
+  },
+  "optionsPageTitle": {
+    "message": "Параметры"
+  },
+  "save": {
+    "message": "Сохранить"
+  },
+  "shortcut": {
+    "message": "Сочетание клавиш"
+  },
+  "shortcutListPageTitle": {
+    "message": "Список команд"
+  }
+}

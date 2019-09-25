@@ -5,7 +5,7 @@ const ValueContainer = ({ description, shortcut }) => (
   <div className="shortcut-select__value">
     {description}
     <span className="shortcut-select__key">
-      {shortcut.length > 0 ? shortcut : 'not specified'}
+      {shortcut.length > 0 ? shortcut : chrome.i18n.getMessage('notSpecified').toLowerCase()}
     </span>
   </div>
 );

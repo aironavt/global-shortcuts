@@ -4,7 +4,7 @@ import CodeEditor from 'components/code-editor';
 import ButtonLink from 'components/button-link';
 import Checkbox from 'components/checkbox';
 import ShortcutSelect from 'components/shortcut-select';
-import LaunchIcon from '../../../../images/launch.svg';
+import LaunchIcon from 'images/launch.svg';
 
 class CommandForm extends Component {
   constructor(props) {
@@ -60,15 +60,14 @@ class CommandForm extends Component {
   }
 
   onInputConditions({ target }) {
-    const { conditions } = this.state;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
-    this.setState({
+    this.setState(({ conditions }) => ({
       conditions: {
         ...conditions,
         [target.name]: value,
       },
-    });
+    }));
   }
 
   onChangeShortcut(id) {
@@ -116,7 +115,9 @@ class CommandForm extends Component {
       <form action="" className="form" onSubmit={this.onSubmit}>
         <div className="form__group-fields">
           <div className="form__field form__group-field">
-            <label htmlFor="name" className="form__label">Name</label>
+            <label htmlFor="name" className="form__label">
+              {chrome.i18n.getMessage('name')}
+            </label>
             <input
               id="name"
               name="name"
@@ -128,15 +129,16 @@ class CommandForm extends Component {
           </div>
           <div className="form__field form__group-field">
             <label htmlFor="shortcut" className="form__label form__label_groups">
-              <span>Shortcut</span>
+              <span>
+                {chrome.i18n.getMessage('shortcut')}
+              </span>
               <ButtonLink
                 icon={LaunchIcon}
                 onClick={this.goToChangeCommandPage}
               >
-                Change command shortcut
+                {chrome.i18n.getMessage('changeCommandShortcut')}
               </ButtonLink>
             </label>
-
             <ShortcutSelect
               id="shortcut"
               name="shortcutId"
@@ -151,17 +153,18 @@ class CommandForm extends Component {
           <div className="form__field form__group-field">
             <label htmlFor="url" className="form__label form__label_groups">
               <span>
-                Url
-                <span className="form__label-info">(Optional)</span>
+                {chrome.i18n.getMessage('url')}
+                <span className="form__label-info">
+                  {`(${chrome.i18n.getMessage('optionalField')})`}
+                </span>
               </span>
               <ButtonLink
                 icon={LaunchIcon}
                 onClick={this.goToMatchPatternsPage}
               >
-                Match Patterns help
+                {chrome.i18n.getMessage('matchPatternsHelp')}
               </ButtonLink>
             </label>
-
             <input
               id="url"
               name="url"
@@ -174,7 +177,7 @@ class CommandForm extends Component {
           <div className="form__field form__group-field">
             <span className="form__label" />
             <Checkbox
-              label="Only for the first tab matched"
+              label={chrome.i18n.getMessage('onlyForFirstTabMatched')}
               name="onlyForFirsTab"
               checked={conditions.onlyForFirsTab}
               onInput={this.onInputConditions}
@@ -184,18 +187,20 @@ class CommandForm extends Component {
 
         <div className="form__field">
           <label htmlFor="code" className="form__label">
-            Code
+            {chrome.i18n.getMessage('code')}
           </label>
           <CodeEditor
-            name="UNIQUE_ID_OF_DIV"
+            name="code"
             value={script}
             onChange={this.onChangeScript}
           />
         </div>
         <div className="form__field">
           <label htmlFor="description" className="form__label">
-            Description
-            <span className="form__label-info">(Optional)</span>
+            {chrome.i18n.getMessage('description')}
+            <span className="form__label-info">
+              {`(${chrome.i18n.getMessage('optionalField')})`}
+            </span>
           </label>
           <textarea
             id="description"
@@ -211,13 +216,13 @@ class CommandForm extends Component {
             className="button"
             onClick={onCancel}
           >
-            Cancel
+            {chrome.i18n.getMessage('cancel')}
           </button>
           <button
             type="submit"
             className="button button_primary"
           >
-            Save
+            {chrome.i18n.getMessage('save')}
           </button>
         </div>
       </form>

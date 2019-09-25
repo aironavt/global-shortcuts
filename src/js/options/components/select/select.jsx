@@ -4,9 +4,9 @@ import { h, Component } from 'preact';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import withKeyHandlerList from 'enhancer/key-handler-list';
+import DropdownIcon from 'images/dropdown.svg';
 import Options from './options';
 import ValueContainer from './value-container';
-import DropdownIcon from '../../../../images/dropdown.svg';
 
 class Select extends Component {
   constructor(props) {
@@ -66,9 +66,7 @@ class Select extends Component {
       closeMenu,
     } = this.props;
 
-    this.setState({
-      isFocused: false,
-    });
+    this.setState({ isFocused: false });
 
     if (menuIsOpen) {
       closeMenu();
@@ -239,8 +237,14 @@ Select.propTypes = {
   placeholder: PropTypes.string,
   menuIsOpen: PropTypes.bool,
   isEdited: PropTypes.bool,
-  valueContainerComponent: PropTypes.element,
-  optionComponent: PropTypes.element,
+  valueContainerComponent: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
+  ]),
+  optionComponent: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
+  ]),
   inputValue: PropTypes.string,
   selectItemId: PropTypes.string,
   activeItemIndex: PropTypes.number,

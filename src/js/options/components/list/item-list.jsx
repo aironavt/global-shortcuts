@@ -3,7 +3,7 @@
 import { h, Component } from 'preact';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import TrashIcon from '../../../../images/trash.svg';
+import TrashIcon from 'images/trash.svg';
 
 class ItemList extends Component {
   constructor(props) {
@@ -76,7 +76,7 @@ class ItemList extends Component {
             type="button"
             tabIndex="-1"
             onClick={this.onRemoveItem}
-            title={`Delete command: ${name}`}
+            title={chrome.i18n.getMessage('hintWhenDeletingCommand', name)}
           >
             <TrashIcon
               width={24}
@@ -90,7 +90,7 @@ class ItemList extends Component {
 }
 
 ItemList.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   isActive: PropTypes.bool,
   name: PropTypes.string.isRequired,
   shortcutValue: PropTypes.string,

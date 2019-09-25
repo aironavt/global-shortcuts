@@ -19,7 +19,6 @@ export default class GlobalShortcuts {
 
   commandHandler(calledCommandId) {
     const { commands } = this.storage.get();
-    const calledCommandIdInt = parseInt(calledCommandId, 10);
 
     if (commands === undefined || commands.length === 0) {
       // Commands not created or not initialized
@@ -27,7 +26,7 @@ export default class GlobalShortcuts {
     }
 
     commands.forEach(({ shortcutId, script, conditions }) => {
-      if (shortcutId === calledCommandIdInt) {
+      if (shortcutId === calledCommandId) {
         this.runCommand({
           script,
           conditions,
@@ -61,7 +60,13 @@ export default class GlobalShortcuts {
           break;
         }
 
-        chrome.tabs.executeScript(tab.id, { code: script });
+        chrome.tabs.executeScript(tab.id, { code: script }, () => {
+          if (process.env.NODE_ENV === 'production') {
+            // Hide error messages in production
+            // eslint-disable-next-line no-unused-expressions
+            chrome.runtime.lastError;
+          }
+        });
       }
     });
   }

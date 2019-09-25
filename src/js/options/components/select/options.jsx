@@ -42,7 +42,7 @@ class Options extends Component {
       ) : (
         <div className="select__options">
           <div className="select__empty-options">
-            No options
+            {chrome.i18n.getMessage('noOptions')}
           </div>
         </div>
       )
@@ -59,7 +59,10 @@ Options.propTypes = {
   ),
   activeItemIndex: PropTypes.number,
   selectItemId: PropTypes.string,
-  optionComponent: PropTypes.element,
+  optionComponent: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
+  ]),
   onSelectItem: PropTypes.func,
   setActiveItemById: PropTypes.func,
 };
