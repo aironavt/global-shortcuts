@@ -23,6 +23,9 @@
   "extDescription": {
     "message": "Расширение Chrome позволяющее запускать пользовательский скрипт с помощью горячих клавиш, когда окно браузера свёрнуто или неактивно"
   },
+  "extName": {
+    "message": "Global shortcuts"
+  },
   "hintWhenDeletingCommand": {
     "message": "Удалить команду: $CommandName$",
     "placeholders": {
