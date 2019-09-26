@@ -1,6 +1,6 @@
 {
   "name": "global-shortcuts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Chrome extension allows you to run your scripts on any website using keyboard shortcuts when the browser window is minimized",
   "private": true,
   "scripts": {
