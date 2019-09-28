@@ -4,8 +4,11 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
+const ZipPlugin = require('zip-webpack-plugin');
+const camelCase = require('camelcase');
 
 const devMode = process.env.NODE_ENV !== 'production';
+const releaseVersion = process.env.npm_package_version;
 
 const NUMBER_OF_COMMANDS = 20;
 
@@ -29,10 +32,52 @@ function transformManifest(content) {
   }
 
   return Buffer.from(JSON.stringify({
-    version: process.env.npm_package_version,
+    version: releaseVersion,
     commands,
     ...JSON.parse(content.toString()),
   }));
+}
+
+const plugins = [
+  // Clean the dist folder
+  new CleanWebpackPlugin({
+    verbose: true,
+    // Ignore manifest.json otherwise, it will be deleted after rebuilding
+    cleanAfterEveryBuildPatterns: [
+      '!manifest.json',
+      '!**/messages.json',
+      '!images/*.png',
+    ],
+  }),
+  new CopyWebpackPlugin([{
+    from: path.resolve(__dirname, 'src/manifest.json'),
+    transform: transformManifest,
+  }]),
+  new CopyWebpackPlugin([{
+    from: path.resolve(__dirname, 'src/_locales/**/messages.json'),
+  }]),
+  new CopyWebpackPlugin([{
+    from: path.resolve(__dirname, 'src/images/*.png'),
+  }]),
+  new MiniCssExtractPlugin(),
+  new HtmlWebpackPlugin({
+    template: path.join(__dirname, 'src/options.html'),
+    filename: 'options.html',
+    chunks: ['options'],
+  }),
+  new WriteFilePlugin(),
+];
+
+if (!devMode) {
+  const extensionName = camelCase(process.env.npm_package_name, { pascalCase: true });
+  const releaseName = `${extensionName}-${releaseVersion}.chrome`;
+
+  plugins.push(
+    // Create an archive for publication in the Google Web Store
+    new ZipPlugin({
+      filename: releaseName,
+    }),
+  );
 }
 
 module.exports = {
@@ -84,35 +129,7 @@ module.exports = {
     ],
   },
 
-  plugins: [
-    // Clean the dist folder
-    new CleanWebpackPlugin({
-      verbose: true,
-      // Ignore manifest.json otherwise, it will be deleted after rebuilding
-      cleanAfterEveryBuildPatterns: [
-        '!manifest.json',
-        '!**/messages.json',
-        '!images/*.png',
-      ],
-    }),
-    new CopyWebpackPlugin([{
-      from: path.resolve(__dirname, 'src/manifest.json'),
-      transform: transformManifest,
-    }]),
-    new CopyWebpackPlugin([{
-      from: path.resolve(__dirname, 'src/_locales/**/messages.json'),
-    }]),
-    new CopyWebpackPlugin([{
-      from: path.resolve(__dirname, 'src/images/*.png'),
-    }]),
-    new MiniCssExtractPlugin(),
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src/options.html'),
-      filename: 'options.html',
-      chunks: ['options'],
-    }),
-    new WriteFilePlugin(),
-  ],
+  plugins,
 
   devServer: {
     hot: true,
