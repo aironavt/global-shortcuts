@@ -5,6 +5,10 @@ import ButtonLink from 'components/button-link';
 import Checkbox from 'components/checkbox';
 import ShortcutSelect from 'components/shortcut-select';
 import LaunchIcon from 'images/launch.svg';
+import {
+  LINK_CONFIGURE_COMMANDS,
+  LINK_MATCH_PATTERNS_HELP,
+} from 'constants';
 
 class CommandForm extends Component {
   constructor(props) {
@@ -80,7 +84,7 @@ class CommandForm extends Component {
     event.preventDefault();
 
     const properties = {
-      url: 'chrome://extensions/configureCommands',
+      url: LINK_CONFIGURE_COMMANDS,
       active: true,
     };
 
@@ -91,7 +95,7 @@ class CommandForm extends Component {
     event.preventDefault();
 
     const properties = {
-      url: 'https://developer.chrome.com/extensions/match_patterns',
+      url: LINK_MATCH_PATTERNS_HELP,
       active: true,
     };
 

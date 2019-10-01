@@ -102,6 +102,7 @@ module.exports = {
       react: 'preact/compat',
       'react-dom': 'preact/compat',
       styles: path.resolve(__dirname, 'src/styles'),
+      constants: path.resolve(__dirname, 'src/js/options/constants'),
     },
     modules: [
       path.resolve(__dirname, 'src/js'),
