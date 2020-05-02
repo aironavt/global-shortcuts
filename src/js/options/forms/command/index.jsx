@@ -1,4 +1,4 @@
-import { h, Component } from 'preact';
+import { h, Component, createRef } from 'preact';
 import PropTypes from 'prop-types';
 import CodeEditor from 'components/code-editor';
 import ButtonLink from 'components/button-link';
@@ -11,6 +11,8 @@ import {
 } from 'constants';
 
 class CommandForm extends Component {
+  nameInputRef = createRef();
+
   constructor(props) {
     super(props);
 
@@ -34,6 +36,10 @@ class CommandForm extends Component {
     this.goToChangeCommandPage = this.goToChangeCommandPage.bind(this);
     this.goToMatchPatternsPage = this.goToMatchPatternsPage.bind(this);
     this.onChangeShortcut = this.onChangeShortcut.bind(this);
+  }
+
+  componentDidMount() {
+    this.nameInputRef?.current.focus();
   }
 
   onSubmit(event) {
@@ -129,6 +135,7 @@ class CommandForm extends Component {
               className="form_input"
               value={name}
               onInput={this.onInput}
+              ref={this.nameInputRef}
             />
           </div>
           <div className="form__field form__group-field">

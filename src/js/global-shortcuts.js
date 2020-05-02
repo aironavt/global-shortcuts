@@ -63,7 +63,7 @@ export default class GlobalShortcuts {
         chrome.tabs.executeScript(tab.id, { code: script }, () => {
           if (process.env.NODE_ENV === 'production') {
             // Hide error messages in production
-            // eslint-disable-next-line no-unused-expressions
+            // eslint-disable-next-line babel/no-unused-expressions
             chrome.runtime.lastError;
           }
         });

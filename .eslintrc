@@ -28,7 +28,9 @@
       {
         "newIsCapExceptionPattern": "\\.default"
       }
-    ]
+    ],
+    "no-unused-expressions": "off",
+    "babel/no-unused-expressions": "error"
   },
   "env": {
     "browser": true,
