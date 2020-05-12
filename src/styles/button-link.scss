@@ -22,11 +22,32 @@
   }
 }
 
-.button-link__text {
+.button-link_align-items_start {
+  align-items: flex-start;
+}
+
+.button-link_align-items_center {
+  align-items: center;
+}
+
+.button-link_align-items_end {
+  align-items: flex-end;
+}
+
+.button-link__text_context {
+  border-bottom: 1px dashed;
+}
+
+.button-link__text_external {
   text-decoration: underline;
 }
 
 .button-link__icon {
-  padding-left: 3px;
+  margin-left: 3px;
+  transition: transform 0.2s ease-out;
   fill: currentColor;
+}
+
+.button-link__icon_flip_horizontally {
+  transform: rotate(180deg);
 }

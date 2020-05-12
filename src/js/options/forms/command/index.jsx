@@ -2,12 +2,13 @@ import { h, Component, createRef } from 'preact';
 import PropTypes from 'prop-types';
 import CodeEditor from 'components/code-editor';
 import ButtonLink from 'components/button-link';
-import Checkbox from 'components/checkbox';
 import ShortcutSelect from 'components/shortcut-select';
+import Conditions from 'components/conditions';
 import LaunchIcon from 'images/launch.svg';
 import {
   LINK_CONFIGURE_COMMANDS,
   LINK_MATCH_PATTERNS_HELP,
+  CONDITION_FLAG_NAMES,
 } from 'constants';
 
 class CommandForm extends Component {
@@ -17,21 +18,26 @@ class CommandForm extends Component {
     super(props);
 
     const { defaultValue } = props;
+    const conditions = {
+      url: defaultValue?.conditions?.url ?? '',
+    };
+
+    CONDITION_FLAG_NAMES.forEach((conditionFlagName) => {
+      conditions[conditionFlagName] = defaultValue?.conditions[conditionFlagName] ?? false;
+    });
 
     this.state = {
       name: defaultValue?.name ?? '',
       shortcutId: defaultValue?.shortcutId ?? '',
       description: defaultValue?.description ?? '',
       script: defaultValue?.script ?? '',
-      conditions: {
-        url: defaultValue?.conditions?.url ?? '',
-        onlyForFirsTab: defaultValue?.conditions?.onlyForFirsTab ?? false,
-      },
+      conditions,
     };
 
     this.onSubmit = this.onSubmit.bind(this);
     this.onInput = this.onInput.bind(this);
     this.onInputConditions = this.onInputConditions.bind(this);
+    this.onInputUrl = this.onInputUrl.bind(this);
     this.onChangeScript = this.onChangeScript.bind(this);
     this.goToChangeCommandPage = this.goToChangeCommandPage.bind(this);
     this.goToMatchPatternsPage = this.goToMatchPatternsPage.bind(this);
@@ -69,13 +75,22 @@ class CommandForm extends Component {
     });
   }
 
-  onInputConditions({ target }) {
+  onInputUrl({ target }) {
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
     this.setState(({ conditions }) => ({
       conditions: {
         ...conditions,
         [target.name]: value,
+      },
+    }));
+  }
+
+  onInputConditions({ target }) {
+    this.setState(({ conditions }) => ({
+      conditions: {
+        ...conditions,
+        [target.name]: target.checked,
       },
     }));
   }
@@ -182,19 +197,15 @@ class CommandForm extends Component {
               type="text"
               className="form_input"
               value={conditions.url}
-              onInput={this.onInputConditions}
-            />
-          </div>
-          <div className="form__field form__group-field">
-            <span className="form__label" />
-            <Checkbox
-              label={chrome.i18n.getMessage('onlyForFirstTabMatched')}
-              name="onlyForFirsTab"
-              checked={conditions.onlyForFirsTab}
-              onInput={this.onInputConditions}
+              onInput={this.onInputUrl}
             />
           </div>
         </div>
+
+        <Conditions
+          value={conditions}
+          onInput={this.onInputConditions}
+        />
 
         <div className="form__field">
           <label htmlFor="code" className="form__label">

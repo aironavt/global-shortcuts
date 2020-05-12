@@ -30,8 +30,15 @@
   }
 }
 
-.checkbox__label {
+.checkbox__text {
+  display: flex;
+  flex-direction: column;
   padding-left: 10px;
+}
+
+.checkbox__description {
+  padding-top: 5px;
+  color: $color-gray;
 }
 
 .checkbox__input {

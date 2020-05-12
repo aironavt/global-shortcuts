@@ -16,7 +16,7 @@ Google Chrome extension, which allows you to run custom scripts using keyboard s
 - [ ] Write tests
 - [ ] Storage refactoring
 - [ ] Exit from code edit using the keyboard shortcut
-- [ ] Additional conditions for triggering the script (Example: does music play on the tab)
+- [x] Additional conditions for triggering the script (Example: does music play on the tab)
 
 ## License
 
