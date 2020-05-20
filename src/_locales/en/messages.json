@@ -8,6 +8,10 @@
   "code": {
     "message": "Code"
   },
+  "codeEditorNavigationInfo": {
+    "description": "Hint how to exit the code editor using the keyboard, as the Tab key is used to insert indentation",
+    "message": "To go to previous or next form element, press"
+  },
   "conditionActiveLabel": {
     "message": "Whether the tabs are active in their windows"
   },
@@ -89,6 +93,9 @@
   "optionsPageTitle": {
     "description": "Options page title",
     "message": "Options"
+  },
+  "or": {
+    "message": "or"
   },
   "save": {
     "message": "Save"

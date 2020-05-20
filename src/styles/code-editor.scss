@@ -28,3 +28,11 @@
 .code-editor-wrapper_focus {
   @include focus;
 }
+
+.code-editor-footer {
+  padding: 8px 10px;
+  color: $color-gray;
+  font-size: 12px;
+  text-align: right;
+  border-top: 1px solid $color-border;
+}
