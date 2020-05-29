@@ -3,17 +3,7 @@
 
 .code-editor {
   border-radius: 4px;
-  animation: slide-up 0.4s ease;
-}
-
-@keyframes slide-up {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+  animation: fade-in $animation-duration-fast ease;
 }
 
 .code-editor-wrapper {
@@ -30,9 +20,26 @@
 }
 
 .code-editor-footer {
+  position: relative;
   padding: 8px 10px;
+  overflow: hidden;
   color: $color-gray;
   font-size: 12px;
   text-align: right;
   border-top: 1px solid $color-border;
+  animation: expand-block $animation-duration-normal ease-in;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    background: $color-background;
+    visibility: hidden;
+    opacity: 0;
+    animation: visibility-hidden $animation-duration-normal ease-in;
+    content: '';
+  }
 }
