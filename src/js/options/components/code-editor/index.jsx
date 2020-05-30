@@ -24,11 +24,10 @@ class Code extends Component {
 
     this.AceEditor = aceEditor.default;
 
-    await import(/* webpackChunkName: "brace" */ 'brace');
-    await import(/* webpackChunkName: "brace-js" */ 'brace/mode/javascript');
-    await import(/* webpackChunkName: "brace-other" */ 'brace/theme/chrome');
-    await import(/* webpackChunkName: "brace-other" */ 'brace/ext/language_tools');
-    await import(/* webpackChunkName: "brace-other" */ 'brace/snippets/javascript');
+    await import(/* webpackChunkName: "ace-builds-js" */ 'ace-builds/src-min-noconflict/mode-javascript');
+    await import(/* webpackChunkName: "ace-builds-other" */ 'ace-builds/src-min-noconflict/theme-chrome');
+    await import(/* webpackChunkName: "ace-builds-other" */ 'ace-builds/src-min-noconflict/ext-language_tools');
+    await import(/* webpackChunkName: "ace-builds-other" */ 'ace-builds/src-min-noconflict/snippets/javascript');
 
     this.forceUpdate();
   }
@@ -124,6 +123,7 @@ class Code extends Component {
               theme="chrome"
               name={name}
               editorProps={{ $blockScrolling: Infinity }}
+              setOptions={{ useWorker: false }}
               value={value}
               onChange={onChange}
               onFocus={this.onFocus}

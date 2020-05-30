@@ -47,18 +47,25 @@ const plugins = [
       '!manifest.json',
       '!**/messages.json',
       '!images/*.png',
+      '!options.html',
     ],
   }),
-  new CopyWebpackPlugin([{
-    from: path.resolve(__dirname, 'src/manifest.json'),
-    transform: transformManifest,
-  }]),
-  new CopyWebpackPlugin([{
-    from: path.resolve(__dirname, 'src/_locales/**/messages.json'),
-  }]),
-  new CopyWebpackPlugin([{
-    from: path.resolve(__dirname, 'src/images/*.png'),
-  }]),
+  new CopyWebpackPlugin({
+    patterns: [{
+      from: path.resolve(__dirname, 'src/manifest.json'),
+      transform: transformManifest,
+    }],
+  }),
+  new CopyWebpackPlugin({
+    patterns: [{
+      from: path.resolve(__dirname, 'src/_locales/**/messages.json'),
+    }],
+  }),
+  new CopyWebpackPlugin({
+    patterns: [{
+      from: path.resolve(__dirname, 'src/images/*.png'),
+    }],
+  }),
   new MiniCssExtractPlugin(),
   new HtmlWebpackPlugin({
     template: path.join(__dirname, 'src/options.html'),
