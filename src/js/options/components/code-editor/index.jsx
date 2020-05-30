@@ -119,7 +119,7 @@ class Code extends Component {
               style={{ lineHeight: '1.4em' }}
               width="100%"
               mode="javascript"
-              fontSize={13}
+              fontSize={14}
               theme="chrome"
               name={name}
               editorProps={{ $blockScrolling: Infinity }}
