@@ -1,22 +1,22 @@
-import { h, Component } from 'preact';
+import { h, Component, createRef } from 'preact';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 const DefaultOption = ({ name }) => name;
 
 class Option extends Component {
+  itemRef = createRef();
+
   constructor(props) {
     super(props);
-
-    this.itemRef = null;
 
     this.onMouseDown = this.onMouseDown.bind(this);
     this.onMouseEnter = this.onMouseEnter.bind(this);
   }
 
   componentWillUpdate({ isActive = false }) {
-    if (isActive && this.itemRef) {
-      this.itemRef.scrollIntoViewIfNeeded();
+    if (isActive) {
+      this.itemRef?.current.scrollIntoViewIfNeeded();
     }
   }
 
@@ -53,7 +53,7 @@ class Option extends Component {
         })}
         onMouseDown={this.onMouseDown}
         onMouseEnter={this.onMouseEnter}
-        ref={(ref) => this.itemRef = ref}
+        ref={this.itemRef}
         role="presentation"
       >
         <OptionValue

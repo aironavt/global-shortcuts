@@ -1,21 +1,26 @@
-import { h, Component } from 'preact';
+import { h, Component, createRef } from 'preact';
 import PropTypes from 'prop-types';
 import List from 'components/list';
 import { route } from 'preact-router';
 
 class ListPage extends Component {
+  createButtonRef = createRef();
+
   constructor(props) {
     super(props);
-
-    this.createButtonRef = null;
 
     this.onCreate = this.onCreate.bind(this);
     this.onEditCommand = this.onEditCommand.bind(this);
   }
 
+  componentDidMount() {
+    this.createButtonRef.current.focus();
+  }
+
   componentWillUpdate({ commands }) {
+    // Focus on the create buttons after deleting all commands
     if (commands?.length === 0) {
-      this.createButtonRef.focus();
+      this.createButtonRef?.current.focus();
     }
   }
 
@@ -54,8 +59,7 @@ class ListPage extends Component {
             className="toolbar-button"
             type="button"
             onClick={this.onCreate}
-            ref={(ref) => this.createButtonRef = ref}
-            autoFocus
+            ref={this.createButtonRef}
           >
             <span className="toolbar-button__text">
               {chrome.i18n.getMessage('createShortcut')}

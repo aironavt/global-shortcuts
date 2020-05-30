@@ -1,15 +1,15 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */
 
-import { h, Component } from 'preact';
+import { h, Component, createRef } from 'preact';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import TrashIcon from 'images/trash.svg';
 
 class ItemList extends Component {
+  itemRef = createRef();
+
   constructor(props) {
     super(props);
-
-    this.itemRef = null;
 
     this.onClick = this.onClick.bind(this);
     this.onMouseDown = this.onMouseDown.bind(this);
@@ -19,7 +19,7 @@ class ItemList extends Component {
   componentWillUpdate({ isActive = false }) {
     if (isActive && this.itemRef) {
       // Scroll to the active item
-      this.itemRef.scrollIntoViewIfNeeded();
+      this.itemRef?.current.scrollIntoViewIfNeeded();
     }
   }
 
@@ -57,7 +57,7 @@ class ItemList extends Component {
         className={classNames('shortcut-list__item', { 'shortcut-list__item_active': isActive })}
         onClick={this.onClick}
         onMouseDown={this.onMouseDown}
-        ref={(ref) => this.itemRef = ref}
+        ref={this.itemRef}
       >
         {
           description ? (

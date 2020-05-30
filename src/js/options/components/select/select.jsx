@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 
-import { h, Component } from 'preact';
+import { h, Component, createRef } from 'preact';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import withKeyHandlerList from 'enhancer/key-handler-list';
@@ -9,14 +9,14 @@ import Options from './options';
 import ValueContainer from './value-container';
 
 class Select extends Component {
+  inputRef = createRef();
+
   constructor(props) {
     super(props);
 
     this.state = {
       isFocused: false,
     };
-
-    this.inputRef = null;
 
     this.onInput = this.onInput.bind(this);
     this.onKeyDown = this.onKeyDown.bind(this);
@@ -88,9 +88,7 @@ class Select extends Component {
       closeMenu();
     }
 
-    if (this.inputRef) {
-      this.inputRef.focus();
-    }
+    this.inputRef?.current.focus();
   }
 
   onSelectItem(id) {
@@ -182,7 +180,7 @@ class Select extends Component {
               onMouseDown={this.onClick}
               onFocus={this.onFocus}
               onBlur={this.onBlur}
-              ref={(ref) => this.inputRef = ref}
+              ref={this.inputRef}
               value={inputValue}
               autoCapitalize="none"
               autoComplete="off"

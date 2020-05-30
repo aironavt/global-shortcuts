@@ -79,6 +79,7 @@
   border: 1px solid $color-border;
   border-radius: 4px;
   box-shadow: 0 4px 10px rgba($color-black, 0.05);
+  animation: slide-up-fade-in $animation-duration-fast ease-in-out;
 }
 
 .select__menu-wrapper {

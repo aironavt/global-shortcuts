@@ -1,5 +1,6 @@
 export default class GlobalShortcuts {
   ALLOWED_PROTOCOLS = ['http', 'https', 'ftp', 'file'];
+  CHROME_QUERY_INFO_FLAG_NAMES = ['active', 'pinned', 'audible', 'muted', 'lastFocusedWindow', 'currentWindow'];
   storage;
 
   constructor() {
@@ -63,7 +64,7 @@ export default class GlobalShortcuts {
         chrome.tabs.executeScript(tab.id, { code: script }, () => {
           if (process.env.NODE_ENV === 'production') {
             // Hide error messages in production
-            // eslint-disable-next-line no-unused-expressions
+            // eslint-disable-next-line babel/no-unused-expressions
             chrome.runtime.lastError;
           }
         });
@@ -80,6 +81,12 @@ export default class GlobalShortcuts {
     if (url) {
       queryInfo.url = url;
     }
+
+    this.CHROME_QUERY_INFO_FLAG_NAMES.forEach((chromeQueryInfoFlagName) => {
+      if (conditions[chromeQueryInfoFlagName] === true) {
+        queryInfo[chromeQueryInfoFlagName] = true;
+      }
+    });
 
     return queryInfo;
   }

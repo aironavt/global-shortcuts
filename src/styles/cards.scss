@@ -1,0 +1,15 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+}
+
+.cards__item {
+  display: flex;
+  width: calc(100% - 20px);
+  margin: 0 10px 20px 10px;
+}
+
+.cards__item_col_2 {
+  width: calc(100% / 2 - 20px);
+}

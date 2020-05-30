@@ -1,7 +1,11 @@
 import { h } from 'preact';
 import PropTypes from 'prop-types';
 
-function Checkbox({ label = '', ...props }) {
+function Checkbox({ label = '', description = '', ...props }) {
+  const isText = label || description;
+  const labelTag = label ? <span className="checkbox__label">{label}</span> : null;
+  const descriptionTag = description ? <span className="checkbox__description">{description}</span> : null;
+
   return (
     <label className="checkbox">
       <input
@@ -11,8 +15,11 @@ function Checkbox({ label = '', ...props }) {
       />
       <span className="checkbox__box" />
       {
-        label ? (
-          <span className="checkbox__label">{label}</span>
+        isText ? (
+          <span className="checkbox__text">
+            {labelTag}
+            {descriptionTag}
+          </span>
         ) : null
       }
     </label>
@@ -21,10 +28,12 @@ function Checkbox({ label = '', ...props }) {
 
 Checkbox.propTypes = {
   label: PropTypes.string,
+  description: PropTypes.string,
 };
 
 Checkbox.defaultProps = {
   label: '',
+  description: '',
 };
 
 export default Checkbox;

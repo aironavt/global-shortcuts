@@ -8,6 +8,30 @@
   "code": {
     "message": "Запускаемый скрипт"
   },
+  "codeEditorNavigationInfo": {
+    "message": "Чтоб перейти к предыдущему или следующему элементу формы нажмите"
+  },
+  "conditionActiveLabel": {
+    "message": "Активна ли вкладка в своём окне"
+  },
+  "conditionAudibleLabel": {
+    "message": "Воспроизводится ли на вкладке звук"
+  },
+  "conditionCurrentWindowLabel": {
+    "message": "Находятся ли вкладки в текущем окне"
+  },
+  "conditionLastFocusedWindowLabel": {
+    "message": "Находятся ли вкладки в последнем активном окне"
+  },
+  "conditionMutedLabel": {
+    "message": "Отключён ли звук на вкладке"
+  },
+  "conditionOnlyForFirsTabLabel": {
+    "message": "Только для первой найденной вкладки"
+  },
+  "conditionPinnedLabel": {
+    "message": "Закреплена ли вкладка"
+  },
   "createPageTitle": {
     "message": "Создание новой команды"
   },
@@ -25,6 +49,9 @@
   },
   "extName": {
     "message": "Global shortcuts"
+  },
+  "hideAdvancedOptions": {
+    "message": "Скрыть дополнительные параметры"
   },
   "hintWhenDeletingCommand": {
     "message": "Удалить команду: $CommandName$",
@@ -53,14 +80,14 @@
   "notSpecified": {
     "message": "Не указано"
   },
-  "onlyForFirstTabMatched": {
-    "message": "Только для первой найденой вкладки"
-  },
   "optionalField": {
     "message": "Необязательное"
   },
   "optionsPageTitle": {
     "message": "Параметры"
+  },
+  "or": {
+    "message": "или"
   },
   "save": {
     "message": "Сохранить"
@@ -70,5 +97,8 @@
   },
   "shortcutListPageTitle": {
     "message": "Список команд"
+  },
+  "showAdvancedOptions": {
+    "message": "Показать дополнительные параметры"
   }
 }

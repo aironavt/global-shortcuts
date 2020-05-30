@@ -1,0 +1,46 @@
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes visibility-hidden {
+  0% {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+@keyframes expand-block {
+  0% {
+    max-height: 0;
+  }
+
+  100% {
+    max-height: 1000px;
+  }
+}
+
+@keyframes slide-up-fade-in {
+  0% {
+    transform: translateY(-15px);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

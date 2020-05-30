@@ -8,6 +8,31 @@
   "code": {
     "message": "Code"
   },
+  "codeEditorNavigationInfo": {
+    "description": "Hint how to exit the code editor using the keyboard, as the Tab key is used to insert indentation",
+    "message": "To go to previous or next form element, press"
+  },
+  "conditionActiveLabel": {
+    "message": "Whether the tabs are active in their windows"
+  },
+  "conditionAudibleLabel": {
+    "message": "Whether the tabs are audible"
+  },
+  "conditionCurrentWindowLabel": {
+    "message": "Whether the tabs are in the current window"
+  },
+  "conditionLastFocusedWindowLabel": {
+    "message": "Whether the tabs are in the last focused window"
+  },
+  "conditionMutedLabel": {
+    "message": "Whether the tabs are muted"
+  },
+  "conditionOnlyForFirsTabLabel": {
+    "message": "Only for the first tab matched"
+  },
+  "conditionPinnedLabel": {
+    "message": "Whether the tabs are pinned"
+  },
   "createPageTitle": {
     "message": "Create a new shortcut"
   },
@@ -28,6 +53,10 @@
   "extName": {
     "description": "The extension name",
     "message": "Global shortcuts"
+  },
+  "hideAdvancedOptions": {
+    "description": "Button text, when clicked, additional filtering options for the page list will be hidden",
+    "message": "Hide advanced options"
   },
   "hintWhenDeletingCommand": {
     "message": "Delete command: $CommandName$",
@@ -58,15 +87,15 @@
     "description": "Placeholder displayed instead of the specified shortcuts",
     "message": "Not specified"
   },
-  "onlyForFirstTabMatched": {
-    "message": "Only for the first tab matched"
-  },
   "optionalField": {
     "message": "Optional"
   },
   "optionsPageTitle": {
     "description": "Options page title",
     "message": "Options"
+  },
+  "or": {
+    "message": "or"
   },
   "save": {
     "message": "Save"
@@ -76,6 +105,10 @@
   },
   "shortcutListPageTitle": {
     "message": "Shortcut list"
+  },
+  "showAdvancedOptions": {
+    "description": "Button text, when clicked, additional page list filtering options will be shown",
+    "message": "Show advanced options"
   },
   "url": {
     "message": "Url"
