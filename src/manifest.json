@@ -12,7 +12,6 @@
   "permissions": [
     "storage",
     "tabs",
-    "webNavigation",
     "<all_urls>"
   ],
   "icons": {
