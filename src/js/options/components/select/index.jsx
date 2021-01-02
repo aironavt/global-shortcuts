@@ -69,7 +69,7 @@ class SelectWrapper extends Component {
     } = this.state;
 
     const filteredOptions = inputValue ?
-      options.filter((option) => option.name.indexOf(inputValue) !== -1) :
+      options.filter((option) => option.description.toLowerCase().indexOf(inputValue.toLowerCase()) !== -1) :
       options;
 
     return (
