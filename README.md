@@ -10,6 +10,7 @@ Google Chrome extension, which allows you to run custom scripts using keyboard s
 - The extension can synchronize settings between browsers within one Google Account.
 
 ## TODO
+- [ ] Migrating to Manifest V3
 - [ ] Form validation
 - [ ] Search the list of commands
 - [ ] Import/Export settings
