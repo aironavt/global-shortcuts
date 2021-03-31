@@ -90,7 +90,7 @@ class Code extends Component {
     return [
       {
         name: 'previousFormControl',
-        bindKey: { win: 'Ctrl-,', mac: 'Command-.' },
+        bindKey: { win: 'Ctrl-,', mac: 'Command-,' },
         exec: this.onPreviousFormControl,
       },
       {
