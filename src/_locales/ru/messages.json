@@ -89,6 +89,9 @@
   "or": {
     "message": "или"
   },
+  "pleaseFillOutField": {
+    "message": "Пожалуйста, заполните это поле"
+  },
   "save": {
     "message": "Сохранить"
   },

@@ -4,6 +4,8 @@ import CodeEditor from 'components/code-editor';
 import ButtonLink from 'components/button-link';
 import ShortcutSelect from 'components/shortcut-select';
 import Conditions from 'components/conditions';
+import Form from 'components/form';
+import FormField from 'components/form/form-field';
 import LaunchIcon from 'images/launch.svg';
 import {
   LINK_CONFIGURE_COMMANDS,
@@ -35,6 +37,7 @@ class CommandForm extends Component {
     };
 
     this.onSubmit = this.onSubmit.bind(this);
+    this.onValidate = this.onValidate.bind(this);
     this.onInput = this.onInput.bind(this);
     this.onInputConditions = this.onInputConditions.bind(this);
     this.onInputUrl = this.onInputUrl.bind(this);
@@ -48,11 +51,9 @@ class CommandForm extends Component {
     this.nameInputRef?.current.focus();
   }
 
-  onSubmit(event) {
+  onSubmit() {
     const { name, shortcutId, description, script, conditions } = this.state;
     const { onSubmit } = this.props;
-
-    event.preventDefault();
 
     onSubmit({
       name,
@@ -63,14 +64,35 @@ class CommandForm extends Component {
     });
   }
 
+  onValidate() {
+    const { name, script } = this.state;
+    const errors = [];
+
+    if (name === '') {
+      errors.push({
+        fieldName: 'name',
+        message: chrome.i18n.getMessage('pleaseFillOutField'),
+      });
+    }
+
+    if (script === '') {
+      errors.push({
+        fieldName: 'code',
+        message: chrome.i18n.getMessage('pleaseFillOutField'),
+      });
+    }
+
+    return errors;
+  }
+
   onChangeScript(script) {
-    this.setState({
+    return this.setState({
       script,
     });
   }
 
   onInput({ target }) {
-    this.setState({
+    return this.setState({
       [target.name]: target.value,
     });
   }
@@ -98,6 +120,12 @@ class CommandForm extends Component {
   onChangeShortcut(id) {
     this.setState({
       shortcutId: id,
+    });
+  }
+
+  setState(newState) {
+    return new Promise((resolve) => {
+      super.setState(newState, resolve);
     });
   }
 
@@ -137,21 +165,26 @@ class CommandForm extends Component {
     } = this.state;
 
     return (
-      <form action="" className="form" onSubmit={this.onSubmit}>
+      <Form
+        onSubmit={this.onSubmit}
+        onValidate={this.onValidate}
+      >
         <div className="form__group-fields">
           <div className="form__field form__group-field">
             <label htmlFor="name" className="form__label">
               {chrome.i18n.getMessage('name')}
             </label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              className="form_input"
-              value={name}
-              onInput={this.onInput}
-              ref={this.nameInputRef}
-            />
+            <FormField>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                className="form__input"
+                value={name}
+                onInput={this.onInput}
+                ref={this.nameInputRef}
+              />
+            </FormField>
           </div>
           <div className="form__field form__group-field">
             <label htmlFor="shortcut" className="form__label form__label_groups">
@@ -195,7 +228,7 @@ class CommandForm extends Component {
               id="url"
               name="url"
               type="text"
-              className="form_input"
+              className="form__input"
               value={conditions.url}
               onInput={this.onInputUrl}
             />
@@ -211,11 +244,16 @@ class CommandForm extends Component {
           <label htmlFor="code" className="form__label">
             {chrome.i18n.getMessage('code')}
           </label>
-          <CodeEditor
-            name="code"
-            value={script}
-            onChange={this.onChangeScript}
-          />
+          <FormField
+            changeEvent="onChange"
+            classNameError="code-editor-wrapper_error"
+          >
+            <CodeEditor
+              name="code"
+              value={script}
+              onChange={this.onChangeScript}
+            />
+          </FormField>
         </div>
         <div className="form__field">
           <label htmlFor="description" className="form__label">
@@ -247,7 +285,7 @@ class CommandForm extends Component {
             {chrome.i18n.getMessage('save')}
           </button>
         </div>
-      </form>
+      </Form>
     );
   }
 }

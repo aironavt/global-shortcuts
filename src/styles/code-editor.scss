@@ -15,6 +15,12 @@
   border-radius: 4px;
 }
 
+.code-editor-wrapper_error {
+  @extend %hover_field-error;
+
+  border-color: $color-error;
+}
+
 .code-editor-wrapper_focus {
   @include focus;
 }

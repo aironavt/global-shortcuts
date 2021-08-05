@@ -11,7 +11,7 @@ Google Chrome extension, which allows you to run custom scripts using keyboard s
 
 ## TODO
 - [ ] Migrating to Manifest V3
-- [ ] Form validation
+- [x] Form validation
 - [ ] Search the list of commands
 - [ ] Import/Export settings
 - [ ] Write tests
