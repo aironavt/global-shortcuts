@@ -1,0 +1,12 @@
+@import "variables";
+
+.form-field-errors {
+  margin-top: 5px;
+  color: $color-error;
+}
+
+.form-field-errors__error {
+  & + & {
+    margin-top: 5px;
+  }
+}

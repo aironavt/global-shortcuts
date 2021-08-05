@@ -5,7 +5,7 @@
   outline-offset: 2px;
 }
 
-@mixin hover_field {
+@mixin hover_field($color-border: $color-border) {
   border-color: darken($color-border, 10%);
 }
 
@@ -20,5 +20,13 @@
 
   &:hover {
     @include hover_field;
+  }
+}
+
+%hover_field-error {
+  transition: 300ms border-color ease-out;
+
+  &:hover {
+    @include hover_field($color-error);
   }
 }

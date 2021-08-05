@@ -29,7 +29,7 @@
   font-size: 0.8rem;
 }
 
-.form_input {
+.form__input {
   @extend %focus;
   @extend %hover_field;
 
@@ -37,6 +37,12 @@
   font-size: 1rem;
   border: 1px solid $color-border;
   border-radius: 4px;
+}
+
+.form__input_error {
+  @extend %hover_field-error;
+
+  border-color: $color-error;
 }
 
 .form__textarea {

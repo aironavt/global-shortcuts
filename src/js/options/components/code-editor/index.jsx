@@ -102,12 +102,13 @@ class Code extends Component {
   }
 
   render() {
-    const { name, value, onChange } = this.props;
+    const { name, value, className, onChange } = this.props;
     const { isFocus } = this.state;
 
     return (
       <div
         className={classNames(
+          className,
           'code-editor-wrapper',
           { 'code-editor-wrapper_focus': isFocus },
         )}
@@ -154,12 +155,14 @@ class Code extends Component {
 Code.propTypes = {
   name: PropTypes.string,
   value: PropTypes.string,
+  className: PropTypes.string,
   onChange: PropTypes.func,
 };
 
 Code.defaultProps = {
   name: '',
   value: '',
+  className: '',
   onChange: null,
 };
 

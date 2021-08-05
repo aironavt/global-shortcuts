@@ -23,6 +23,7 @@
     "object-curly-newline": ["error", { "ObjectPattern": { "consistent": true }}],
     "operator-linebreak": ["error", "after"],
     "jsx-a11y/label-has-associated-control": ["error", { "assert": "either" }],
+    "react/destructuring-assignment": "off",
     "new-cap": [
       "error",
       {
